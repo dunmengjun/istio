@@ -9,9 +9,9 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/reviews-v3
-  CONTENT_PATH: ./samples/bookinfo/src/reviews/reviews-wlpcfg
-  BUILD_ARGS: service_version=v3,enable_ratings=true,star_color=red
+  IMAGE: dunmengjun/productpage-v-flooding
+  CONTENT_PATH: ./samples/bookinfo/src/productpage
+  BUILD_ARGS: flood_factor=100
 
 jobs:
   build-and-push:
@@ -66,10 +66,10 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
-      - name: Build Gradle
-        run : |
-          cd ./samples/bookinfo/src/reviews
-          docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
+#       - name: Build Gradle
+#         run : |
+#           cd ./samples/bookinfo/src/reviews
+#           docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
       # 构建并上传
       - name: Build and push
         uses: docker/build-push-action@v2
