@@ -11,6 +11,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE: dunmengjun/details-v1
   CONTENT_PATH: ./samples/bookinfo/src/details/
+  BUILD_ARGS: service_version=v1
 
 jobs:
   build-and-push:
@@ -78,9 +79,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-		  build-args: 
-			service_version: v1
-
+          build-args: ${{ BUILD_ARGS }}
       - name: Inspect image
         run: |
           docker buildx imagetools inspect \
