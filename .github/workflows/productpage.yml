@@ -9,9 +9,9 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/ratings-v-unhealthy
-  CONTENT_PATH: ./samples/bookinfo/src/ratings/
-  BUILD_ARGS: service_version=v-unhealthy
+  IMAGE: dunmengjun/mysqldb
+  CONTENT_PATH: ./samples/bookinfo/src/mysql/
+#   BUILD_ARGS: service_version=v-unhealthy
 
 jobs:
   build-and-push:
