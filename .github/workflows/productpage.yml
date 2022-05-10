@@ -9,9 +9,9 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/ratings-v-delayed
+  IMAGE: dunmengjun/ratings-v-unavailable
   CONTENT_PATH: ./samples/bookinfo/src/ratings/
-  BUILD_ARGS: service_version=v-delayed
+  BUILD_ARGS: service_version=v-unavailable
 
 jobs:
   build-and-push:
