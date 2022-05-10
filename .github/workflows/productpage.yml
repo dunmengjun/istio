@@ -9,7 +9,7 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/reviews
+  IMAGE: dunmengjun/reviews-v1
   CONTENT_PATH: ./samples/bookinfo/src/reviews/reviews-wlpcfg
   BUILD_ARGS: service_version=v1
 
