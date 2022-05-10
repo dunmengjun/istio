@@ -9,7 +9,7 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: productpage
+  IMAGE: dunmengjun/productpage
 
 jobs:
   build-and-push:
