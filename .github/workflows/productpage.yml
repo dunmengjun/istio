@@ -9,9 +9,9 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/ratings-v2
+  IMAGE: dunmengjun/ratings-v-faulty
   CONTENT_PATH: ./samples/bookinfo/src/ratings/
-  BUILD_ARGS: service_version=v2
+  BUILD_ARGS: service_version=v-faulty
 
 jobs:
   build-and-push:
