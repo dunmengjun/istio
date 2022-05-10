@@ -9,9 +9,9 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/reviews-v2
+  IMAGE: dunmengjun/reviews-v3
   CONTENT_PATH: ./samples/bookinfo/src/reviews/reviews-wlpcfg
-  BUILD_ARGS: service_version=v2,enable_ratings=true
+  BUILD_ARGS: service_version=v3,enable_ratings=true,star_color=red
 
 jobs:
   build-and-push:
