@@ -1,4 +1,4 @@
-name: Build Productpage Image
+name: Build Ratings Image
 
 # 当 push 到 master 分支，或者创建以 v 开头的 tag 时触发，可根据需求修改
 on:
@@ -9,7 +9,8 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/productpage
+  IMAGE: dunmengjun/ratings
+  CONTENT_PATH: ./samples/bookinfo/src/ratings/
 
 jobs:
   build-and-push:
@@ -68,8 +69,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./samples/bookinfo/src/productpage/
-          file: ./samples/bookinfo/src/productpage/Dockerfile
+          context: ${{ env.CONTENT_PATH }}
+          file: ${{ env.CONTENT_PATH }}/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64
           push: true
