@@ -79,7 +79,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-          build-args: ${{ BUILD_ARGS }}
+          build-args: ${{ env.BUILD_ARGS }}
       - name: Inspect image
         run: |
           docker buildx imagetools inspect \
