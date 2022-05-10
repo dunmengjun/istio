@@ -9,9 +9,9 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/mongodb
-  CONTENT_PATH: ./samples/bookinfo/src/mongodb/
-#   BUILD_ARGS: service_version=v-unhealthy
+  IMAGE: dunmengjun/reviews
+  CONTENT_PATH: ./samples/bookinfo/src/reviews/reviews-wlpcfg
+  BUILD_ARGS: service_version=v1
 
 jobs:
   build-and-push:
@@ -66,6 +66,10 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
+      - name: Build Gradle
+        run : |
+          cd ./samples/bookinfo/src/reviews
+          docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
       # 构建并上传
       - name: Build and push
         uses: docker/build-push-action@v2
