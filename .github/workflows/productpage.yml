@@ -9,8 +9,8 @@ on:
       - v*
 env:
   REGISTRY: ghcr.io
-  IMAGE: dunmengjun/mysqldb
-  CONTENT_PATH: ./samples/bookinfo/src/mysql/
+  IMAGE: dunmengjun/mongodb
+  CONTENT_PATH: ./samples/bookinfo/src/mongodb/
 #   BUILD_ARGS: service_version=v-unhealthy
 
 jobs:
